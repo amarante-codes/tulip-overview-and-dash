@@ -1,0 +1,4 @@
+# Define the application's entrypoint 
+# Python has No default entrypoint logic.
+# https://github.com/GoogleCloudPlatform/buildpacks/blob/main/README.md#language-specific-behavior
+web: /layers/google.python.runtime/python/bin/python3 get_tulip_dash_data.py
