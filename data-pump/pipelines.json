@@ -1,6 +1,6 @@
 {
     "pipelineHost": "https://gv-service-proxy-ah555nuenq-uc.a.run.app",
-    "targetBucket": "gs://bamboo-zephyr-tulip-dash-data-test",
+    "targetBucket": "bamboo-zephyr-tulip-dash-data-test",
     "pipelines": [
         {
             "endpoint": "/products",
