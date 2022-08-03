@@ -18,6 +18,8 @@ import json
 
 from google.cloud import storage
 
+
+
 def upload_blob_from_memory(bucket_name, destination_blob_name, contents):
     """Uploads a file to the bucket."""
 
@@ -36,7 +38,7 @@ def upload_blob_from_memory(bucket_name, destination_blob_name, contents):
 
     blob.upload_from_string(contents)
 
-    logging.INFO(
+    logging.info(
         f"{destination_blob_name} with contents {contents} uploaded to {bucket_name}."
     )
 
@@ -52,7 +54,8 @@ target_bucket = pipelines['targetBucket']
 for obj in pipelines['pipelines']:
     # pull the data
     result = requests.get(data_host+obj['endpoint'])
+    result.encoding = 'utf-8'
     # store the results
-    logging.DEBUG(f'The pipelines object is: {obj}')
-    logging.DEBUG(f'The result is: {result.json()}')
-    upload_blob_from_memory(target_bucket, obj['targetObject'], result.json())
+    logging.info(f'The pipelines object is: {obj}')
+    logging.info(f'The result is: {result.text}')
+    upload_blob_from_memory(target_bucket, obj['targetObject'], result.text)
