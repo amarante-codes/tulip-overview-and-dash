@@ -1,0 +1,14 @@
+{
+    "pipelineHost": "https://gv-service-proxy-ah555nuenq-uc.a.run.app",
+    "targetBucket": "bamboo-zephyr-tulip-dash-data-test",
+    "pipelines": [
+        {
+            "endpoint": "/products",
+            "targetObject": "daily_product_balances.json"
+        },
+        {
+            "endpoint": "/wallets",
+            "targetObject": "daily_wallet_value_returned.json"
+        }
+    ]
+}

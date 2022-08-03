@@ -1,0 +1,19 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: 
+  - 'build'
+  - '-t'
+  - 'us-central1-docker.pkg.dev/bamboo-zephyr-349301/tulip-data-pump-test/tulip-data-pump:latest'
+  - '.'
+- id: docker push
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/bamboo-zephyr-349301/tulip-data-pump-test/tulip-data-pump:latest']
+- id: Deploy to Cloud Run
+  name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - beta
+  - run
+  - jobs
+  - update
+  - tulip-data-pump
+  - --region=us-central1
