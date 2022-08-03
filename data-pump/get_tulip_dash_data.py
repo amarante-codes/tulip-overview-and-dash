@@ -17,10 +17,6 @@ import requests
 import json
 
 from google.cloud import storage
-import google.cloud.logging
-
-log_client = google.cloud.logging.Client()
-log_client.setup_logging()
 
 def upload_blob_from_memory(bucket_name, destination_blob_name, contents):
     """Uploads a file to the bucket."""
