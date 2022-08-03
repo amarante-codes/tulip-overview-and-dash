@@ -7,8 +7,48 @@
             "targetObject": "daily_product_balances.json"
         },
         {
-            "endpoint": "/wallets",
+            "endpoint": "/wallet-value",
             "targetObject": "daily_wallet_value_returned.json"
+        },
+        {
+            "endpoint": "/wallet-growth",
+            "targetObject": "daily_wallet_growth.json"
+        },
+        {
+            "endpoint": "/deposit-growth",
+            "targetObject": "daily_deposit_growth.json"
+        },
+        {
+            "endpoint": "/user-engagement",
+            "targetObject": "daily_user-engagement.json"
+        },
+        {
+            "endpoint": "/wallet-retention",
+            "targetObject": "daily_wallet_retention.json"
+        },
+        {
+            "endpoint": "/dollar-retention",
+            "targetObject": "daily_net_dollar_retention.json"
+        },
+        {
+            "endpoint": "/wallet-ltv",
+            "targetObject": "daily_wallet_ltv.json"
+        },
+        {
+            "endpoint": "/active-wallets",
+            "targetObject": "daily_active_wallet_data.json"
+        },
+        {
+            "endpoint": "/product-funds",
+            "targetObject": "daily_product_funds_distribution.json"
+        },
+        {
+            "endpoint": "/product-details",
+            "targetObject": "daily_product_details.json"
+        },
+        {
+            "endpoint": "/web",
+            "targetObject": "daily_web_data.json"
         }
     ]
 }
