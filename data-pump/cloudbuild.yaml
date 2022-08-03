@@ -1,15 +1,13 @@
 steps:
-- name: 'gcr.io/k8s-skaffold/pack'
-  entrypoint: 'pack'
+- name: 'docker'
   args: 
   - 'build'
-  - '--path=.'
-  - '--publish'
-  - '--builder=gcr.io/buildpacks/builder:v1'
-  - 'us-central1-docker.pkg.dev/bamboo-zephyr-349301/tulip-data-pump-test/tulip-data-pump:$COMMIT_SHA'
-# - id: docker push
-#   name: 'docker'
-#   args: ['push', 'us-central1-docker.pkg.dev/bamboo-zephyr-349301/tulip-data-pump-test/tulip-data-pump:$COMMIT_SHA']
+  - '-t'
+  - 'us-central1-docker.pkg.dev/bamboo-zephyr-349301/tulip-data-pump-test/tulip-data-pump:latest'
+  - '.'
+- id: docker push
+  name: 'docker'
+  args: ['push', 'us-central1-docker.pkg.dev/bamboo-zephyr-349301/tulip-data-pump-test/tulip-data-pump:latest']
 - id: Deploy to Cloud Run
   name: 'gcr.io/cloud-builders/gcloud'
   args:

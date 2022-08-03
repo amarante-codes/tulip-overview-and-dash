@@ -12,10 +12,15 @@
     So a function and module will help us automate that task and stay flexibile to future evolutions
 '''
 
+import logging
 import requests
 import json
 
 from google.cloud import storage
+import google.cloud.logging
+
+log_client = google.cloud.logging.Client()
+log_client.setup_logging()
 
 def upload_blob_from_memory(bucket_name, destination_blob_name, contents):
     """Uploads a file to the bucket."""
@@ -35,7 +40,7 @@ def upload_blob_from_memory(bucket_name, destination_blob_name, contents):
 
     blob.upload_from_string(contents)
 
-    print(
+    logging.INFO(
         f"{destination_blob_name} with contents {contents} uploaded to {bucket_name}."
     )
 
@@ -52,6 +57,6 @@ for obj in pipelines['pipelines']:
     # pull the data
     result = requests.get(data_host+obj['endpoint'])
     # store the results
-    print(f'The pipelines object is: {obj}')
-    print(f'The result is: {result.json()}')
+    logging.DEBUG(f'The pipelines object is: {obj}')
+    logging.DEBUG(f'The result is: {result.json()}')
     upload_blob_from_memory(target_bucket, obj['targetObject'], result.json())
