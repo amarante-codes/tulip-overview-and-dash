@@ -50,4 +50,4 @@ Dashboard will be built using Dash. All deliverables and the final dashboard wil
 
 The Dashboard will be served files stored in a Google Cloud Storage bucket. This bucket will be public so the dashboard and other members of the community can interact with the Tulip dashboard data as desired.
 
-The bucket will be hyrdated by a data pump service that will be scheduled to create flow by pulling from data pipelines provided by the Growth Vector API.
+The bucket will be hyrdated by a data pump service that will be scheduled to create flow by pulling from data pipelines provided by Tulip or a third-party data provider.
